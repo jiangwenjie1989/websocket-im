@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@ServerEndpoint(host = "127.0.0.1", port = 9999, path = "/ws")
+@ServerEndpoint(port = 9999, path = "/ws")
 @Component
 public class MyWebSocket {
 
