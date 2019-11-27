@@ -19,6 +19,6 @@
 怎么样启动项目?
 1.修改jwj-websocket-common工程 application-dev.properties配置文件，将里面的数据库和reids改成自己的
 2.之前sql文件直接启动就可以了
-3.代码很简单，不的可以加群
+3.代码很简单，不懂的可以加群
 
 
