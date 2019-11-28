@@ -1,5 +1,6 @@
 # websocket-im
 基于netty的websocket的消息聊天室
+演示地址:http://120.79.157.199:8080/login.do
 
 感谢这位兄弟提供的框架支持:https://github.com/YeautyYE/netty-websocket-spring-boot-starter
 
