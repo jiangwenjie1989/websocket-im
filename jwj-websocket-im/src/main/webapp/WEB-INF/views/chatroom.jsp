@@ -92,6 +92,8 @@ body{
 									":contains('" + data.fromUsername + "')");
 							alert(data.fromUsername + "下线了");
 						}
+					}else if (data.messageType == 0) {
+						//console.log(data.text);
 					}else{
 						// 接收服务端的实时消息并添加到HTML页面中
 			            $("#log-container").append("<div class='bg-info'><label class='text-danger'>"+data.fromUsername+"&nbsp;"+dateFormat("YYYY-mm-dd HH:MM:SS", new Date())+"</label><div class='text-success'>"+data.text+"</div></div><br>");
@@ -112,6 +114,7 @@ body{
 						data["toUsername"]="";
 						data["groupId"]="";
 						data["sendType"]="2";
+						data["messageType"]="3";
 						data["text"]=text;
 						websocket.send(JSON.stringify(data));
 						$("#msg").val("");
@@ -135,6 +138,7 @@ body{
 							data["toUsername"]=toUsername;
 							data["groupId"]="";
 							data["sendType"]="1";
+							data["messageType"]="3";
 							data["text"]=text;
 							websocket.send(JSON.stringify(data));
 							$("#myinfo").val("");
@@ -171,6 +175,22 @@ body{
 				document.οncοntextmenu = function() {
 					return false
 				};//禁止右键刷新
+
+				//心跳检查每隔8秒执行一次
+				setInterval(heartCheck, 8000);
+
+				function heartCheck(){
+					var data={};
+					data["fromUserId"]="${sessionScope.userId}";
+					data["fromUsername"]="${sessionScope.username}";
+					data["toUserId"]="${sessionScope.userId}";
+					// data["toUsername"]="";
+					// data["groupId"]="";
+					data["sendType"]="1";
+					data["text"]="还活着";
+					data["messageType"]="0";
+					websocket.send(JSON.stringify(data));
+				}
 
 			});
 				

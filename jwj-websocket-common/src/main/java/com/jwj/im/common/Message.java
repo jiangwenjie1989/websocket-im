@@ -37,7 +37,7 @@ public class Message {
     @ApiModelProperty(value = "发送类型 1表示点对点发送 2表示广播")
     private Integer sendType;
     
-    @ApiModelProperty(value = "消息类型 1上线消息 2下线消息")
+    @ApiModelProperty(value = "消息类型 0心跳检查 1上线消息 2下线消息 3其它消息")
     private Integer messageType;
     
 

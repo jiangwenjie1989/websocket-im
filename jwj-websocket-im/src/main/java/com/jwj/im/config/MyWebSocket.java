@@ -108,6 +108,11 @@ public class MyWebSocket {
 	@OnMessage
 	public void onMessage(Session session, String message) {
 		Message messageDate = JSON.parseObject(message, Message.class);
+		if(messageDate.getMessageType()==0){
+			//System.out.println("心跳检测======>>>>>"+messageDate.getFromUsername()+messageDate.getText());
+			messageDate.setText("我知道你还活着");
+		}
+
 		messageDate.setPeopleNum(Integer.parseInt(redisString.getCached(RedisCacheKeys.VW_IM_PEOPLE_NUM)));
 		RedisMassgae redisMassgae = new RedisMassgae();
 		redisMassgae.setChannel(imChannel);
