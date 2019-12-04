@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@ServerEndpoint(port = 9999, path = "/ws")
+@ServerEndpoint(prefix = "netty-websocket")
 @Component
 public class MyWebSocket {
 

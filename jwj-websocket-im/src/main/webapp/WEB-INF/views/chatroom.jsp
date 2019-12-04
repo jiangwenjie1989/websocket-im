@@ -75,7 +75,7 @@ body{
 
 	$(document).ready(
 			function() {
-				var wsServer = "ws://127.0.0.1:9999/ws?userId=" + ${sessionScope.userId};
+				var wsServer = "ws://127.0.0.1:9999/ws/api?userId=" + ${sessionScope.userId};
 				var websocket = new WebSocket(wsServer);
 				websocket.onmessage = function(event) {
 					var data = JSON.parse(event.data);
